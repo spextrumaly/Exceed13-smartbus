@@ -1,0 +1,34 @@
+.panel{
+  margin-top: 30px;
+}
+#leftColumn{
+  text-align: center;
+}
+#panel-enter{
+  text-align: center;
+  font-size: 30px ;
+  height: 140px;
+  width: 150px;
+  margin-left: 30%;
+  margin-right: 70%;
+}
+#panel-leave{
+  text-align: center;
+  font-size: 30px ;
+  height: 140px;
+  width: 150px;
+  margin-left: 30%;
+  margin-right: 70%;
+}
+#time{
+  text-align: center;
+  font-size: 16px ;
+  height: 50px;
+  width: 150px;
+  margin-left: 28%;
+  margin-right: 72%;
+}
+
+#time-body{
+
+}

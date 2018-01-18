@@ -1,20 +1,10 @@
-var React = require("react");
 var ReactDOM = require("react-dom");
+var HelloWorld = React.createClass({
+  <div>Hello World123</div>
+});
 
-(function() {
-  'use strict';
-
-    module.exports = React.createClass({
-      render: function() {
-        return (
-          <div>
-            <h1>Hello World</h1>
-          </div>
-        );
-      }
-    });
-
-}());
+module.exports = HelloWorld;
 
 var Wrapper = require('./wrapper.jsx');
-ReactDOM.render(<Wrapper/>, document.getElementById("container"));
+ReactDOM.render(
+  <Wrapper/>,document.getElementById("container"));

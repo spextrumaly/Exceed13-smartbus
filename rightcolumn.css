@@ -1,0 +1,46 @@
+#btn {
+  /* css code */
+  background-color: #1abc9c ;
+  border: 0px;
+  color: white;
+}
+btn:hover {
+  background-color: #3498db ;
+  transition: 1s ;
+}
+#chat-list {
+  color: #ECECEC ;
+  height: 400px ;
+  background-color: #E7E0DE ;
+  overflow-y:scroll;
+}
+.panel{
+  margin-top: 30px;
+}
+li {
+  margin-top: 10px;
+  list-style-type: none;
+  height: 40px ;
+  background-color: #A5A2A2  ;
+}
+
+body {
+  height: 400px;
+  background-image: url("/images/1.jpg");
+}
+
+#container {
+  text-align: center ;
+  background-color: #FDE3A7;
+}
+#con {
+  background-color: #AEA8D3 ;
+}
+#PassengerEnter {
+  text-align: center ;
+  background-color: #E08283 ;
+}
+.remove-btn {
+  background-color: #F89406;
+
+}

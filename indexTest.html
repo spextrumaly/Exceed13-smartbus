@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+    <script src="/stylesheets/jquery-3.1.0.min.js"></script>
+    <script src="/libs/exceed.lib.js"></script>
+    <link rel="stylesheet" href="rightcolumn.css">
+</head>
+
+<body>
+    <div class="row">
+      <div id="container" class="col-md-offset-9">
+        <div class="panel panel-success">
+            <div class="panel-heading">HISTORY</div>
+            <div class="panel-body">
+                <ul class="tabs" id="chat-list"></ul>
+                <br />
+                <!-- <div>
+                    <input class="form-control" id="message" />
+                </div> -->
+                <button id="PassengerEnter" class="btn">test</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <script type='text/javascript'>
+        /* Linking html to javascript via jQuery*/
+        var chatList = $('#chat-list');
+        var SendButton = $('#btn-send');
+        var PassengerEnter = $('#PassengerEnter');
+        var currentMessage = '';
+        var i = 1;
+
+        PassengerEnter.click(function(event) {
+            if( i == 1) { //When press Enter
+
+                var message = PassengerEnter.val(); //Get message from html element
+                var date = new Date();
+                var now = date.toUTCString();
+                $("#chat-list").append("<li><span class = \"indicator success\"> "+now +"</span>t</li>");
+                $.ajax({
+                    url: 'http://10.32.176.4/exist/' + 'Enter : ' + " (" + now +")/set "
+                });
+                i = 2;
+            }else if (i == 2) {
+
+              var message = PassengerEnter.val(); //Get message from html element
+              var date = new Date();
+              var now = date.toUTCString();
+              $("#chat-list").append("<li><span class = \"indicator success\"> "+now +"</span>t</li>");
+              $.ajax({
+                  url: 'http://10.32.176.4/exist/' + 'Leave : ' + " (" + now +")/set "
+              });
+              i = 1;
+            }
+        });
+
+        setInterval(function() {
+            //Run every 1 second (1000 milliseconds)
+            $.ajax({
+                    url: 'http://10.32.176.4/exist'
+                })
+                .done(function(data) {
+                  if(data !== currentMessage){
+                    var oldChat = chatList.val();
+                    // chatList.html(oldChat + '\n' + data); //set message to html element
+                    currentMessage = data;
+                    chatList.scrollTop(chatList[0].scrollHeight);
+                  }
+                });
+        }, 1000);
+
+        /* Send message to server*/
+        // SendButton.click(function() {
+        //     var message = PassengerEnter.val(); //Get message from html element
+        //     $.ajax({
+        //             url: 'http://10.32.176.4/workshop/' + 'KANOON : ' + message
+        //         })
+        //         .done(function(data) {
+        //             alert('Success');
+        //         });
+        // });
+    </script>
+</body>
+
+</html>
